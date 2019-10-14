@@ -1,0 +1,54 @@
+{
+  "title": "Auth0 Logs to Datadog",
+  "name": "auth0-logs-to-datadog",
+  "version": "1.0.0",
+  "preVersion": "1.0.0",
+  "description": "This extension will take all of your Auth0 logs and export them to Datadog.",
+  "logoUrl": "https://www.vectorlogo.zone/logos/datadoghq/datadoghq-ar21.svg",
+  "secrets": {
+    "DATADOG_URL": {
+      "description": "The base URL for Datadog logs intake endpoint",
+      "example": "https://http-intake.logs.datadoghq.eu/v1/input",
+      "type": "text",
+      "default": "https://http-intake.logs.datadoghq.eu/v1/input",
+      "required": true
+    },
+    "DATADOG_API_KEY": {
+      "description": "The Datadog API key used for authorization",
+      "type": "text",
+      "required": true
+    },
+    "DATADOG_LOG_TAGS": {
+      "description": "The tag that will be applied to sent log entries",
+      "type": "text"
+    },
+    "DATADOG_LOG_SERVICE": {
+      "description": "The service name that will be applied to sent log entries",
+      "type": "text"
+    },
+    "DATADOG_LOG_SOURCE": {
+      "description": "The source that will be applied to sent log entries",
+      "type": "text"
+    },
+    "SEND_AS_BATCH": {
+      "description": "If enabled, extension will send entire batch in one request. Otherwise, it will send requests one by one.",
+      "type": "select",
+      "allowMultiple": false,
+      "default": "true",
+      "options": [
+        {
+          "value": "true",
+          "text": "Enabled"
+        },
+        {
+          "value": "false",
+          "text": "Disabled"
+        }
+      ]
+    },
+    "DATADOG_CONCURRENT_CALLS": {
+      "description": "The maximum concurrent calls that will be made to Datadog endpoints",
+      "default": 10
+    }
+  }
+}
